@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10251f">
+  <title>Evergreen — Hotel Reservations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Evergreen home"><span class="brand-mark">E</span><span>EVERGREEN <small>HOTEL &amp; RETREAT</small></span></a>
+    <nav><a href="#rooms">Our rooms</a><a href="#reservations">Reservations</a></nav>
+    <a class="top-cta" href="#booking">Book a stay <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-image" role="img" aria-label="A peaceful mountain hotel surrounded by forest"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow light">A QUIETER KIND OF GETAWAY</p>
+        <h1>Make room<br>for <em>beautiful</em><br>moments.</h1>
+        <p class="hero-copy">Slow down, settle in, and stay awhile.<br>Your next favorite place is waiting.</p>
+        <a class="button button-light" href="#booking">Find your stay <span>↓</span></a>
+      </div>
+      <div class="hero-note"><span>01 — 03</span><span>Hidden in the heart of nature</span></div>
+    </section>
+
+    <section class="booking-wrap" id="booking">
+      <form class="search-panel" id="search-form">
+        <label><span>CHECK IN</span><input id="check-in" type="date" required></label>
+        <label><span>CHECK OUT</span><input id="check-out" type="date" required></label>
+        <label><span>ROOM STYLE</span><select id="category"><option value="">Any room</option><option>Standard</option><option>Deluxe</option><option>Suite</option></select></label>
+        <button class="button button-green" type="submit">Check availability <span>→</span></button>
+      </form>
+    </section>
+
+    <section class="section rooms-section" id="rooms">
+      <div class="section-heading">
+        <div><p class="eyebrow">STAY YOUR WAY</p><h2>Find your <em>sanctuary.</em></h2></div>
+        <p>Thoughtful spaces, natural textures, and little details that make a stay feel like yours.</p>
+      </div>
+      <div id="status" class="status" aria-live="polite"></div>
+      <div class="room-grid" id="room-grid"></div>
+    </section>
+
+    <section class="experience">
+      <div class="experience-image"></div>
+      <div class="experience-copy"><p class="eyebrow light">MORE THAN A ROOM</p><h2>Come for the view.<br><em>Stay for the feeling.</em></h2><p>Wake up to fresh air, unhurried mornings, and the kind of quiet that stays with you long after checkout.</p><a href="#booking" class="text-link">Plan your escape <span>→</span></a></div>
+    </section>
+
+    <section class="section reservations-section" id="reservations">
+      <div class="section-heading"><div><p class="eyebrow">YOUR TRIPS</p><h2>Reservations.</h2></div><button class="button button-outline" id="refresh-reservations" type="button">Refresh list ↻</button></div>
+      <div id="reservation-list" class="reservation-list"></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#home"><span class="brand-mark">E</span><span>EVERGREEN <small>HOTEL &amp; RETREAT</small></span></a><p>A slower stay, made just for you.</p><span>© 2026 Evergreen Hotel</span></footer>
+
+  <dialog id="reservation-dialog">
+    <form method="dialog" class="dialog-close"><button aria-label="Close">×</button></form>
+    <p class="eyebrow">MAKE IT OFFICIAL</p><h2>Reserve your stay</h2>
+    <p id="selected-room" class="selected-room"></p>
+    <form id="reservation-form">
+      <label>Your name<input id="guest-name" type="text" maxlength="120" autocomplete="name" required placeholder="Full name"></label>
+      <label>Check in<input id="dialog-check-in" type="date" required></label>
+      <label>Check out<input id="dialog-check-out" type="date" required></label>
+      <button class="button button-green full-width" type="submit">Confirm reservation <span>→</span></button>
+    </form>
+    <p id="dialog-message" class="status" aria-live="polite"></p>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
